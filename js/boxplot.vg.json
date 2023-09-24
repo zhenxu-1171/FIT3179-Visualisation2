@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A vertical box plot showing median, min, and max body mass of penguins.",
+  "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries_Region.csv"},
+  "mark": {
+    "type": "boxplot",
+    "extent": "min-max",
+    "median": {"color": "red"},
+    "ticks": true
+  },
+  "encoding": {
+    "y": {"field": "Region", "type": "nominal"},
+    "color": {"field": "Region", "type": "nominal", "legend": null},
+    "x": {
+      "field": "Salary in USD",
+      "type": "quantitative"
+    }
+    
+  }
+}
