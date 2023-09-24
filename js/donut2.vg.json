@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple donut chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/donut2.csv"
+  },
+  "encoding": {
+    "theta": {"field": "Job Title", "type": "quantitative", "stack": true},
+    "color": {"field": "Expertise Level", "type": "nominal"},
+    "tooltip": [
+      {"field": "Expertise Level", "type": "nominal", "title": "Expertise Level"},
+      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employee"}
+    ]
+  },
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 50}
+  }, {
+    "mark": {"type": "text", "radius": 115},
+    "encoding": {
+      "text": {"field": "Job Title", "type": "nominal"}
+    }
+  }]
+}
