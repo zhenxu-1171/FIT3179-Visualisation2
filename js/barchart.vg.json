@@ -4,7 +4,33 @@
   "title": "Top Directors by Average Worldwide Gross",
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
   "mark": "bar",
+  "params":[
+    {
+      "name": "Year_Selection",
+      "bind":{
+        "input": "select",
+        "options":[
+          null,
+          2020,
+          2021,
+          2022,
+          2023
+        ],
+        "labels":[
+          "Show All",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "name": "Year Selection:"
+      }
+    }
+  ],
   "transform": [
+    {
+      "filter": "Year_Selection == null || datum.Year == Year_Selection"
+    },
     {
       "aggregate": [{"op": "mean", "field": "Salary in USD", "as": "aggregate_salary"}],
       "groupby": ["Job Title"]
@@ -13,9 +39,11 @@
       "window": [{"op": "row_number", "as": "rank"}],
       "sort": [{ "field": "aggregate_salary", "order": "descending" }]
     },
+
     {
       "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job"
     }
+    
   ],
   "encoding": {
     "x": {
