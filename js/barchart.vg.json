@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top-K plot",
+  "title": "Top Directors by Average Worldwide Gross",
+  "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
+  "mark": "bar",
+  "transform": [
+    {
+      "aggregate": [{"op": "mean", "field": "Salary in USD", "as": "aggregate_salary"}],
+      "groupby": ["Job Title"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "aggregate_salary", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "aggregate_salary",
+      "type": "quantitative",
+      "title": null,
+      "scale": {"domain": [0, 450000]}
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "aggregate_salary", "order": "descending"},
+      "field": "ranked_job",
+      "type": "ordinal",
+      "title": null
+    },
+     "tooltip": [
+      {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
+      {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
+    ]
+  }
+}
