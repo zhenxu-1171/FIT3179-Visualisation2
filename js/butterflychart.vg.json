@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for the US in 2000.",
+  "data": { "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
+  "transform": [
+    {"calculate": "datum['Employment Type'] == 2 ? 'Full-Time' : 'Contract'", "as": "Employment"}
+  ],
+  "spacing": 0,
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "Employment Type", "equal": "Full-Time"}
+    }],
+    "title": "Full-Time",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Job Title", "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "mean", "field": "Salary in USD",
+        "title": "Average Salary in USD",
+        "axis": {"format": "s"},
+        "sort": "descending"
+      },
+      "color": {
+        "field": "Employment",
+        "scale": {"range": ["#675193", "#ca8861"]},
+        "legend": null
+      }
+    }
+  }, {
+    "width": 20,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+      "y": {"field": "Job Title", "type": "ordinal", "axis": null, "sort": "descending"},
+      "text": {"field": "Job Title", "type": "ordinal"}
+    }
+  }, {
+    "transform": [{
+      "filter": {"field": "Employment Type", "equal": "Contract"}
+    }],
+    "title": "Contract",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Job Title", "title": null,
+        "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "mean", "field": "Salary in USD",
+        "title": "population",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "gender",
+        "legend": null
+      }
+    }
+  }],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
