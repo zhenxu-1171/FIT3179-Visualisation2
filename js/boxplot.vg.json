@@ -2,8 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "height": 300,
   "width": 800,
+  "title":"Salary range for each country",
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries_Region.csv"},
-  "title": "Salary Range for each country",
+
   "params": [
     {
       "name": "region_select",
