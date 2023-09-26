@@ -12,9 +12,9 @@
     "ticks": true
   },
   "encoding": {
-    "y": {"field": "Region", "type": "nominal"},
+    "x": {"field": "Company Location", "type": "nominal"},
     "color": {"field": "Region", "type": "nominal", "legend": null},
-    "x": {
+    "y": {
       "field": "Salary in USD",
       "type": "quantitative",
       "scale": {"zero": false}
