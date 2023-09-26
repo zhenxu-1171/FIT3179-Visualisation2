@@ -1,67 +1,70 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "height": 300,
-  "width": 800,
-  "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries_Region.csv"},
-
-  "params": [
+  "description": "Top-K plot",
+  "title": "Top Directors by Average Worldwide Gross",
+  "height":"container",
+  "width":"container",
+  "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
+  "mark": {"type": "bar", "color":"#FF6347"},
+  "params":[
     {
-      "name": "region_select",
+      "name": "Year_Selection",
       "bind":{
-        "input":"select",
-        "options":
-            [null,
-            "Africa",
-            "Asia",
-            "Europe",
-            "Middle East",
-            "North America",
-            "Oceania",
-            "South America"],
-        "labels": [
-          "Show All",
-          "Africa",
-          "Asia",
-          "Europe",
-          "Middle East",
-          "North America",
-          "Oceania",
-          "South America"
+        "input": "select",
+        "options":[
+          null,
+          2020,
+          2021,
+          2022,
+          2023
         ],
-        "name":"Select Region: "
+        "labels":[
+          "Show All",
+          "2020",
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "name": "Year Selection:"
       }
     }
   ],
   "transform": [
-    {"calculate": "datum['Salary in USD'] - 0", "as": "Salary in USD"},
-    {"filter": "region_select == null || datum['Region'] == region_select"}
-  ],
-  "mark": {
-    "type": "boxplot",
-    "extent": "min-max",
-    "median": {"color": "red"},
-    "ticks": true
-  },
-  "encoding": {
-    "x": {"field": "Company Location", "type": "nominal"},
-    "color": {"field": "Region", "type": "nominal", "legend": null, "scale":{
-      "domain": ["Africa",
-            "Asia",
-            "Europe",
-            "Middle East",
-            "North America",
-            "Oceania",
-            "South America"],
-      "range":[
-        "#FF5733", "#3498DB", 
-        "#27AE60", "#F1C40F",  "#9B59B6", "#E74C3C",  "#34495E"
-      ]
-    }},
-    "y": {
-      "field": "Salary in USD",
-      "type": "quantitative",
-      "scale": {"zero": false}
+    {
+      "filter": "Year_Selection == null || datum.Year == Year_Selection"
+    },
+    {
+      "aggregate": [{"op": "mean", "field": "Salary in USD", "as": "aggregate_salary"}],
+      "groupby": ["Job Title"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "aggregate_salary", "order": "descending" }]
+    },
+
+    {
+      "calculate": "datum.rank < 10 ? datum['Job Title'] : 'All Others'", "as": "ranked_job"
     }
     
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "aggregate_salary",
+      "type": "quantitative",
+      "title": null,
+      "scale": {"domain": [0, 450000]}
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "aggregate_salary", "order": "descending"},
+      "field": "ranked_job",
+      "type": "ordinal",
+      "title": null
+    },
+    
+     "tooltip": [
+      {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
+      {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
+    ]
   }
 }
