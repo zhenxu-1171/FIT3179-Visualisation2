@@ -1,31 +1,31 @@
-Company Location,Year,Average of Salary in USD
-Algeria,2022,100000
-American Samoa,2021,18053
-American Samoa,2022,50000
-Andorra,2023,50745
-Argentina,2022,50000
-Argentina,2023,65000
-Armenia,2023,50000
-Australia,2021,58539
-Australia,2022,88339
-Australia,2023,173815.3333
-Austria,2020,82683.5
-Austria,2021,61467
-Austria,2022,67098.33333
-Bahamas,2021,45555
-Belgium,2021,85699
-Belgium,2022,68030.5
-Bosnia and Herzegovina,2023,120000
-Brazil,2021,21453.5
-Brazil,2022,63750
-Brazil,2023,63252.57143
-Canada,2020,58952.33333
-Canada,2021,108410.5455
-Canada,2022,127696.1944
-Canada,2023,143427.9684
-Central African Rep.,2023,49216
-Chile,2021,40038
-China,2021,100000
+Region,Year,Average of Salary in USD
+Africa,2020,60000
+Africa,2021,46666.66667
+Africa,2022,84450
+Africa,2023,45491.4
+Asia,2020,114056.6667
+Asia,2021,47731.14815
+Asia,2022,36382.13636
+Asia,2023,40483.43333
+Europe,2020,61324.63333
+Europe,2021,72135.19403
+Europe,2022,73135.81657
+Europe,2023,105440.4194
+Middle East,2020,115000
+Middle East,2021,109529.5
+Middle East,2022,95000
+Middle East,2023,220587
+North America,2020,133865.9474
+North America,2021,134142.2018
+North America,2022,147654.1798
+North America,2023,161655.3901
+Oceania,2020,125000
+Oceania,2021,45043.66667
+Oceania,2022,84853.63636
+Oceania,2023,173815.3333
+South America,2021,26197.25
+South America,2022,68500
+South America,2023,66307.63636
 Colombia,2021,21844
 Colombia,2022,125000
 Colombia,2023,74000
