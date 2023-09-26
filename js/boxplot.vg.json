@@ -1,9 +1,40 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A vertical box plot showing median, min, and max body mass of penguins.",
+  "height": 300,
+  "width": 800,
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries_Region.csv"},
+
+  "params": [
+    {
+      "name": "region_select",
+      "bind":{
+        "input":"select",
+        "options":
+            [null,
+            "Africa",
+            "Asia",
+            "Europe",
+            "Middle East",
+            "North America",
+            "Oceania",
+            "South America"],
+        "labels": [
+          "Show All",
+          "Africa",
+          "Asia",
+          "Europe",
+          "Middle East",
+          "North America",
+          "Oceania",
+          "South America"
+        ],
+        "name":"Select Region: "
+      }
+    }
+  ],
   "transform": [
-    {"calculate": "datum['Salary in USD'] - 0", "as": "Salary in USD"}
+    {"calculate": "datum['Salary in USD'] - 0", "as": "Salary in USD"},
+    {"filter": "region_select == null || datum['Region'] == region_select"}
   ],
   "mark": {
     "type": "boxplot",
@@ -13,7 +44,19 @@
   },
   "encoding": {
     "x": {"field": "Company Location", "type": "nominal"},
-    "color": {"field": "Region", "type": "nominal", "legend": null},
+    "color": {"field": "Region", "type": "nominal", "legend": null, "scale":{
+      "domain": ["Africa",
+            "Asia",
+            "Europe",
+            "Middle East",
+            "North America",
+            "Oceania",
+            "South America"],
+      "range":[
+        "#FF5733", "#3498DB", 
+        "#27AE60", "#F1C40F",  "#9B59B6", "#E74C3C",  "#34495E"
+      ]
+    }},
     "y": {
       "field": "Salary in USD",
       "type": "quantitative",
