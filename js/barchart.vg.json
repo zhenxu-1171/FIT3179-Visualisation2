@@ -1,9 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top-K plot",
-  "title": "Top Directors by Average Worldwide Gross",
+  "title": "Salary Range of Each Country",
+  "height":"container",
+  "width":"container",
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
-  "mark": "bar",
+  "mark": {"type": "bar", "color":"#FF6347"},
   "params":[
     {
       "name": "Year_Selection",
@@ -59,6 +61,7 @@
       "type": "ordinal",
       "title": null
     },
+    
      "tooltip": [
       {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
       {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
