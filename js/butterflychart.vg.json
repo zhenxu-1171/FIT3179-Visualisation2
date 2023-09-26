@@ -3,13 +3,14 @@
   "description": "A population pyramid for the US in 2000.",
   "data": { "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
   "transform": [
-    {"calculate": "datum['Employment Type'] == 2 ? 'Full-Time' : 'Contract'", "as": "Employment"}
+    {"filter": {"field": "Job Title", "oneOf": ["Applied Machine" ,"Learning Scientist", "Business Data Analyst","Data Analyst","Finance Data Analyst", "Machine Learning Engineer", "ML Engineer", "NLP Engineer", "Principal Data Scientist", "Product Data Analyst", "Staff Data Analyst", "Staff Data Scientist"]}}
   ],
   "spacing": 0,
   "hconcat": [{
     "transform": [{
       "filter": {"field": "Employment Type", "equal": "Full-Time"}
-    }],
+    }
+    ],
     "title": "Full-Time",
     "mark": "bar",
     "encoding": {
@@ -20,20 +21,26 @@
         "aggregate": "mean", "field": "Salary in USD",
         "title": "Average Salary in USD",
         "axis": {"format": "s"},
-        "sort": "descending"
+        "sort": "descending",
+        "scale": {"domain": [0,400000]}
       },
       "color": {
-        "field": "Employment",
+        "field": "Employment Type",
         "scale": {"range": ["#675193", "#ca8861"]},
         "legend": null
-      }
+      },
+      "tooltip": [
+      {"field": "Job Title", "type": "nominal", "title": "Job Title"},
+      {"field": "Salary in USD", "type": "quantitative", "aggregate": "mean", "title": "Average Salary in USD", "format": ".2f"}
+    ]
     }
   }, {
-    "width": 20,
+    "width": 10,
     "view": {"stroke": null},
     "mark": {
       "type": "text",
-      "align": "center"
+      "align": "center",
+      "fontStyle": "normal",
     },
     "encoding": {
       "y": {"field": "Job Title", "type": "ordinal", "axis": null, "sort": "descending"},
@@ -52,13 +59,17 @@
       },
       "x": {
         "aggregate": "mean", "field": "Salary in USD",
-        "title": "population",
+        "title": "Average Salary in USD",
         "axis": {"format": "s"}
       },
       "color": {
-        "field": "gender",
+        "field": "Employent Type",
         "legend": null
-      }
+      },
+      "tooltip": [
+      {"field": "Job Title", "type": "nominal", "title": "Job Title"},
+      {"field": "Salary in USD", "type": "quantitative", "aggregate": "mean", "title": "Average Salary in USD", "format": ".2f"}
+    ]
     }
   }],
   "config": {
