@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "title": "Employment Type of Data Science Employee",
+  "data": {
+    "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/radial.csv"
+  },
+  "transform": [
+    {"calculate": "datum['Job Title']>1000 ? datum['Job Title']/50 : datum['Job Title'] ", "as": "Job Title scaled"}
+  ],
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+  },{
+    "mark": {"type": "text", "radiusOffset": 10},
+    "encoding": {
+      "text": {"field": "Job Title", "type": "quantitative"}
+    }
+  }],
+  "encoding": {
+    "theta": {"field": "Job Title scaled", "type": "quantitative", "stack": true},
+    "radius": {"field": "Job Title scaled", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+    "color": {"field": "Employment Type", "type": "nominal"},
+    "tooltip":[
+    {"field": "Employment Type", "type": "nominal", "title": "Employment Type"},
+    {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}]
+  }
+  
+}
