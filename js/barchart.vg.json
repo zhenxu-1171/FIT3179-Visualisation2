@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top-K plot",
   "title": "Average salary for each job title",
-  "height":"container",
   "width":"container",
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
   "mark": {"type": "bar", "color":"#FF6347"},
