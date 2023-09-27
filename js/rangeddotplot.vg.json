@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {"text":"Salary Growth Trend in Region(2022 to 2023)", "offset":10},
+  "width": "container",
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/rangeddotplot.csv"},
   "transform": [
     {
