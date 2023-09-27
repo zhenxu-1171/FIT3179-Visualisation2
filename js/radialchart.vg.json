@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
+  "height": 300,
   "title": "Employment Type of Data Science Employee",
   "data": {
     "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/radial.csv"
@@ -23,6 +24,11 @@
     "tooltip":[
     {"field": "Employment Type", "type": "nominal", "title": "Employment Type"},
     {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}]
+  },
+  "config": {
+    "view": {
+       "stroke": "transparent"
+    }
   }
   
 }

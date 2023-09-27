@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {"text":"Comparison of Average Salary between Full-Time and Contract", "anchor": "middle", "offset": 10},
-  "width": "container",
   "data": { "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
   "transform": [
     {"filter": {"field": "Job Title", "oneOf": ["Applied Machine" ,"Learning Scientist", "Business Data Analyst","Data Analyst","Finance Data Analyst", "Machine Learning Engineer", "ML Engineer", "NLP Engineer", "Principal Data Scientist", "Product Data Analyst", "Staff Data Analyst", "Staff Data Scientist"]}}
@@ -41,7 +40,7 @@
     "mark": {
       "type": "text",
       "align": "center",
-      "fontStyle": "normal",
+      "fontStyle": "normal"
     },
     "encoding": {
       "y": {"field": "Job Title", "type": "ordinal", "axis": null, "sort": "descending"},

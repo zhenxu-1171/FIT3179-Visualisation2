@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Company Size of Data Science Employee",
+  "width":"container",
   "data": {
     "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/donut1.csv"
   },
@@ -15,9 +16,14 @@
   "layer": [{
     "mark": {"type": "arc", "innerRadius": 50}
   }, {
-    "mark": {"type": "text", "radius": 110},
+    "mark": {"type": "text", "radius": 115},
     "encoding": {
       "text": {"field": "Job Title", "type": "nominal"}
     }
-  }]
+  }],
+  "config": {
+    "view": {
+       "stroke": "transparent"
+    }
+  }
 }

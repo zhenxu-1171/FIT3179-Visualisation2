@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Visualisation 2</title>
+
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+<body>
+
+    <div class="page">
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1 style="text-align: center">Data Science Salary</h1>
+                <p style="text-align: center;">This visualisation will show about the data science salary.</p>
+            </div>
+        </div>
+        
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="donut1" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="donut2" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-1">
+                <p>This is the description line for donut chart above.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="map" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-1">
+                <p>This is the description line for choropleth map</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <p>This is the description line for choropleth map</p>
+                </div>
+            </div>
+
+            <div class="pure-u-2-3">
+                <div id="rangeddotplot" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="butterflychart" class="vis-container"></div>
+            </div>
+            
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <br>
+                    <p> description</p>
+                </div>
+
+            </div>
+
+            <div class="pure-u-2-3">
+                <br>
+                <div id="radialchart" class="vis-container"></div>
+            </div>
+
+        </div>
+        
+        <div class="pure-g">
+
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <p> description</p>
+                </div>
+            </div>
+            <div class="pure-u-2-3">
+                <div id="barchart" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+
+            <div class="pure-u-1-1">
+                <div id="boxplot" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+
+            <div class="pure-u-1-1">
+                <h2 style="text-align: center;">Conclusion</h2>
+                <p>Yeah</p>
+            </div>
+        </div>
+
+        
+
+        
+        
+    </div>
+
+
+    <script type="text/javascript">
+        var donut1 = "js/donut1.vg.json";
+        var donut2 = "js/donut2.vg.json";
+        var map = "js/choroplethmap.vg.json";
+        var rangeddotplot= "js/rangeddotplot.vg.json";
+        var butterflychart= "js/butterflychart.vg.json";
+        var radialchart= "js/radialchart.vg.json";
+        var barchart= "js/barchart.vg.json";
+        var boxplot= "js/boxplot.vg.json";
+
+        vegaEmbed('#donut1', donut1, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#donut2', donut2, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#map', map, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#rangeddotplot', rangeddotplot, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#butterflychart', butterflychart, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#radialchart', radialchart, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#barchart', barchart, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#boxplot', boxplot, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+    
+</body>
+</html>
