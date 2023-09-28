@@ -7,6 +7,7 @@
   ],
   "spacing": 0,
   "hconcat": [{
+    "width":350,
     "transform": [{
       "filter": {"field": "Employment Type", "equal": "Full-Time"}
     }
@@ -26,7 +27,7 @@
       },
       "color": {
         "field": "Employment Type",
-        "scale": {"range": ["#675193", "#ca8861"]},
+        "scale": {"range": ["#9d44b5", "#678d58"]},
         "legend": null
       },
       "tooltip": [
@@ -35,7 +36,7 @@
     ]
     }
   }, {
-    "width": 10,
+    "width": 150,
     "view": {"stroke": null},
     "mark": {
       "type": "text",
@@ -47,6 +48,7 @@
       "text": {"field": "Job Title", "type": "ordinal"}
     }
   }, {
+    "width":340,
     "transform": [{
       "filter": {"field": "Employment Type", "equal": "Contract"}
     }],

@@ -19,6 +19,9 @@ h2 {
     font-weight: 500;
 }
 
+p {
+    margin-top: 0px
+}
 body {
     background-color: lightgray;
 }
@@ -47,4 +50,9 @@ h1 {
 
 .small-font {
     font-size: 14px;
+}
+
+#box {
+    outline-style: dashed;
+    outline-offset: 5px;
 }

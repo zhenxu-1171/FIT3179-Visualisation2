@@ -7,10 +7,13 @@
   },
   "encoding": {
     "theta": {"field": "Job Title", "type": "quantitative", "stack": true},
-    "color": {"field": "Expertise Level", "type": "nominal"},
+    "color": {"field": "Expertise Level", "type": "nominal", "scale":{
+      "domain":["Director", "Expert", "Intermediate", "Junior"],
+      "range":["#a6611a", "#dfc27d", "#80cdc1", "#018571"]
+    }},
     "tooltip": [
       {"field": "Expertise Level", "type": "nominal", "title": "Expertise Level"},
-      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employee"}
+      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}
     ]
   },
   "layer": [{

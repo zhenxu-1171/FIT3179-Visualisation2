@@ -7,10 +7,13 @@
   },
   "encoding": {
     "theta": {"field": "Job Title", "type": "quantitative", "stack": true},
-    "color": {"field": "Company Size", "type": "nominal"},
+    "color": {"field": "Company Size", "type": "nominal", "scale":{
+      "domain":["Small", "Medium", "Large"],
+      "range":["#fed766", "#009fb7", "#fe4a49"]
+    }},
     "tooltip": [
       {"field": "Company Size", "type": "nominal", "title": "Company Size"},
-      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employee"}
+      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}
     ]
   },
   "layer": [{
