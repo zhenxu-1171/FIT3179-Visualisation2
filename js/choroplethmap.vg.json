@@ -112,6 +112,7 @@
   "config": {
     "view": {
        "stroke": "transparent"
-    }
+    },
+    "title": {"fontSize":15}
   }
 }

@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top-K plot",
-  "title": "Average salary for each job title",
+  "title": "Average Salary for Each Job Title",
   "width":"container",
+  "height":300,
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
   "mark": {"type": "bar", "color":"#FF6347"},
   "params":[
@@ -65,5 +66,8 @@
       {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
       {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
     ]
+  },
+  "config": {
+    "title": {"fontSize":15}
   }
 }

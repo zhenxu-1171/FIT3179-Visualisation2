@@ -5,28 +5,40 @@
   "data": {
     "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/donut1.csv"
   },
-  "encoding": {
-    "theta": {"field": "Job Title", "type": "quantitative", "stack": true},
-    "color": {"field": "Company Size", "type": "nominal", "scale":{
-      "domain":["Small", "Medium", "Large"],
-      "range":["#fed766", "#009fb7", "#fe4a49"]
-    }},
-    "tooltip": [
-      {"field": "Company Size", "type": "nominal", "title": "Company Size"},
-      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}
-    ]
-  },
-  "layer": [{
-    "mark": {"type": "arc", "innerRadius": 50}
+    "layer": [{
+      "params": [
+    {"name": "select", "select": "point"}
+  ],
+    "mark": {"type": "arc", "innerRadius": 50
+    }
   }, {
     "mark": {"type": "text", "radius": 115},
     "encoding": {
       "text": {"field": "Job Title", "type": "nominal"}
     }
   }],
+  "encoding": {
+    "theta": {"field": "Job Title", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "Company Size",
+      "type": "nominal", 
+      "scale":{
+      "domain":["Small", "Medium", "Large"],
+      "range":["#fed766", "#009fb7", "#fe4a49"]
+    }},
+    "opacity": {
+      "condition": {"param": "select", "value": 1},
+      "value": 0.3
+    },
+    "tooltip": [
+      {"field": "Company Size", "type": "nominal", "title": "Company Size"},
+      {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}
+    ]
+  },
   "config": {
     "view": {
        "stroke": "transparent"
-    }
+    },
+    "title": {"fontSize":15}
   }
 }

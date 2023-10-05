@@ -76,6 +76,7 @@
   }],
   "config": {
     "view": {"stroke": null},
-    "axis": {"grid": false}
+    "axis": {"grid": false},
+    "title": {"fontSize":15}
   }
 }

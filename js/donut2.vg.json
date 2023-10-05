@@ -11,12 +11,19 @@
       "domain":["Director", "Expert", "Intermediate", "Junior"],
       "range":["#a6611a", "#dfc27d", "#80cdc1", "#018571"]
     }},
+    "opacity": {
+      "condition": {"param": "select", "value": 1},
+      "value": 0.3
+    },
     "tooltip": [
       {"field": "Expertise Level", "type": "nominal", "title": "Expertise Level"},
       {"field": "Job Title", "type": "quantitative", "title": "Number of Data Science Employees"}
     ]
   },
   "layer": [{
+    "params": [
+    {"name": "select", "select": "point"}
+  ],
     "mark": {"type": "arc", "innerRadius": 50}
   }, {
     "mark": {"type": "text", "radius": 115},
@@ -27,6 +34,8 @@
   "config": {
     "view": {
        "stroke": "transparent"
-    }
+    },
+    "title": {"fontSize":15}
+  
   }
 }
