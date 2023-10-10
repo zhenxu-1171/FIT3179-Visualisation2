@@ -1,5 +1,5 @@
 body *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .page {
@@ -20,7 +20,8 @@ h2 {
 }
 
 p {
-    margin-top: 0px
+    margin-top: 0px;
+    font-size: 15px;
 }
 body {
     background-color: lightgray;
@@ -55,4 +56,8 @@ h1 {
 #box {
     outline-style: dashed;
     outline-offset: 5px;
+}
+
+em {
+    font-size: larger;
 }

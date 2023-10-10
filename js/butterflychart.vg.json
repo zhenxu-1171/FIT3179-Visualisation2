@@ -7,13 +7,12 @@
   ],
   "spacing": 0,
   "hconcat": [{
-    "width":350,
+    "width":330,
     "transform": [{
       "filter": {"field": "Employment Type", "equal": "Full-Time"}
     }
     ],
     "title": "Full-Time",
-    "mark": "bar",
     "encoding": {
       "y": {
         "field": "Job Title", "axis": null, "sort": "descending"
@@ -24,7 +23,12 @@
         "axis": {"format": "s"},
         "sort": "descending",
         "scale": {"domain": [0,400000]}
-      },
+      }
+    },
+    "layer":[
+    {"mark": "bar",
+    "encoding": {
+      
       "color": {
         "field": "Employment Type",
         "scale": {"range": ["#9d44b5", "#678d58"]},
@@ -34,7 +38,15 @@
       {"field": "Job Title", "type": "nominal", "title": "Job Title"},
       {"field": "Salary in USD", "type": "quantitative", "aggregate": "mean", "title": "Average Salary in USD", "format": ".2f"}
     ]
-    }
+    }},
+    {
+      "mark": {"type": "text", "align": "right", "dx": -4},
+    "encoding": {
+      "text": {"field": "Salary in USD",
+      "type": "quantitative",
+      "aggregate":"average",
+      "format":".2f"}
+    }}]
   }, {
     "width": 150,
     "view": {"stroke": null},
@@ -45,16 +57,16 @@
     },
     "encoding": {
       "y": {"field": "Job Title", "type": "ordinal", "axis": null, "sort": "descending"},
-      "text": {"field": "Job Title", "type": "ordinal"}
+      "text": {"field": "Job Title", "type": "ordinal"},
+      "detail": {"aggregate": "count"}
     }
   }, {
-    "width":340,
+    "width":330,
     "transform": [{
       "filter": {"field": "Employment Type", "equal": "Contract"}
     }],
     "title": "Contract",
-    "mark": "bar",
-    "encoding": {
+    "encoding":{
       "y": {
         "field": "Job Title", "title": null,
         "axis": null, "sort": "descending"
@@ -63,7 +75,10 @@
         "aggregate": "mean", "field": "Salary in USD",
         "title": "Average Salary in USD",
         "axis": {"format": "s"}
-      },
+      }
+    },
+    "layer":[{"mark": "bar",
+    "encoding": {
       "color": {
         "field": "Employent Type",
         "legend": null
@@ -72,7 +87,15 @@
       {"field": "Job Title", "type": "nominal", "title": "Job Title"},
       {"field": "Salary in USD", "type": "quantitative", "aggregate": "mean", "title": "Average Salary in USD", "format": ".2f"}
     ]
-    }
+    }},
+    {"mark": {"type": "text", "align": "left", "dx": 4},
+    "encoding": {
+      "text": {"field": "Salary in USD",
+      "type": "quantitative",
+      "aggregate":"average",
+      "format":".2f"}
+    }}]
+    
   }],
   "config": {
     "view": {"stroke": null},

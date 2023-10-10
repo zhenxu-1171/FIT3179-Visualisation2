@@ -5,7 +5,6 @@
   "width":"container",
   "height":300,
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/v5_Latest_Data_Science_Salaries.csv"},
-  "mark": {"type": "bar", "color":"#FF6347"},
   "params":[
     {
       "name": "Year_Selection",
@@ -47,26 +46,50 @@
     }
     
   ],
-  "encoding": {
-    "x": {
-      "aggregate": "mean",
-      "field": "aggregate_salary",
-      "type": "quantitative",
-      "title": null,
-      "scale": {"domain": [0, 450000]}
-    },
-    "y": {
-      "sort": {"op": "mean", "field": "aggregate_salary", "order": "descending"},
-      "field": "ranked_job",
-      "type": "ordinal",
-      "title": null
-    },
-    
-     "tooltip": [
-      {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
-      {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
-    ]
+  "layer":[{
+    "params": [
+    {
+      "name": "brush",
+      "select": {"type": "interval", "encodings": ["y"]}
+    }
+    ],
+    "mark": {"type": "bar", "color":"#FF6347"},
+    "encoding": {
+      "x": {
+        "aggregate": "mean",
+        "field": "aggregate_salary",
+        "type": "quantitative",
+        "title": null,
+        "scale": {"domain": [0, 450000]}
+      },
+      "y": {
+        "sort": {"op": "mean", "field": "aggregate_salary", "order": "descending"},
+        "field": "ranked_job",
+        "type": "ordinal",
+        "title": null
+      },
+      
+       "tooltip": [
+        {"field": "ranked_job", "type": "nominal", "title": "Job Title"},
+        {"field": "aggregate_salary", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
+      ]
+    }
   },
+    {
+    "transform": [{
+    "filter": {"param": "brush"}
+    }],
+      "mark": "rule",
+      "encoding": {
+      "x": {
+        "aggregate": "mean",
+        "field": "aggregate_salary",
+        "type": "quantitative"
+      },
+      "color": {"value": "firebrick"},
+      "size": {"value": 3}
+    }
+    }],
   "config": {
     "title": {"fontSize":15}
   }
