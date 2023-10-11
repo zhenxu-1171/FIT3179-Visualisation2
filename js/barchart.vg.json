@@ -87,7 +87,15 @@
         "type": "quantitative"
       },
       "color": {"value": "firebrick"},
-      "size": {"value": 3}
+      "size": {"value": 3},
+      "strokeDash": {"value": [8, 4]},
+      "tooltip":{
+        "field": "aggregate_salary",
+        "aggregate":"mean",
+        "type": "quantitative",
+        "format":".2f",
+        "title":"Overall Average Line"
+      }
     }
     }],
   "config": {
