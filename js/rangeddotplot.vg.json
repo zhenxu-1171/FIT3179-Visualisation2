@@ -4,6 +4,7 @@
   "width":"container",
   "height": 250,
   "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/rangeddotplot.csv"},
+  
   "transform": [
     {
       "filter": {
@@ -38,10 +39,20 @@
           "field": "Region",
           "type": "nominal"
         },
-        "color": {"value": "#db646f"}
+        "color": {"value": "#db646f"},
       }
     },
     {
+      "params": [{
+        "name":"year_selection",
+        "select":{"type":"point", "fields": ["Year"]},
+        "bind":"legend"
+      },
+      {
+    "name": "view",
+    "select": "interval",
+    "bind": "scales"
+  }],
       "mark": {
         "type": "point",
         "filled": true
@@ -57,7 +68,10 @@
           "title": "Year"
         },
         "size": {"value": 100},
-        "opacity": {"value": 1},
+        "opacity": {
+        "condition": {"param": "year_selection", "value": 1},
+        "value": 0.1
+      },
      "tooltip": [
       {"field": "Region", "type": "nominal", "title": "Region"},
       {"field": "Year", "type": "ordinal", "title": "Year"},
