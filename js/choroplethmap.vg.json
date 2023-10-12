@@ -34,7 +34,7 @@
         "Oceania",
         "South America"
       ],
-      "name": "Focus to Region"
+      "name": "Focus to Region: "
     }},
     {"name":"zoom",
     "value": 135,
@@ -49,6 +49,13 @@
   "projection": {"type": "equirectangular", "scale":{"expr": "zoom"},  "center":{"expr": "focus_region"}},
   
   "layer":[
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/zhenxu-1171/Homework-Week-9/main/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {"type": "geoshape", "stroke": "grey", "opacity": 0.3}
+    },
   {"transform": [
         {
           "calculate": "'No data shown in ' + datum.properties.NAME",
@@ -103,12 +110,22 @@
     ]
   }},
   {
-      "data": {
-        "url": "https://raw.githubusercontent.com/zhenxu-1171/Homework-Week-9/main/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {"type": "geoshape", "stroke": "grey", "opacity": 0.3}
-    }],
+    "data": {
+      "url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/region.csv"
+    },
+    "mark": {
+      "type": "text",
+      "color": "black",
+      "fontWeight": "bold",
+      "fontSize": 12
+    },
+    "encoding": {
+      "text": {"field": "Region", "type": "nominal"},
+      "latitude": {"field": "Latitude", "type": "quantitative"},
+      "longitude": {"field": "Longitude", "type": "quantitative"}
+    }
+  }
+  ],
   "config": {
     "view": {
        "stroke": "transparent"

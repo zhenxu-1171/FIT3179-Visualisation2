@@ -11,10 +11,14 @@
   ],
     "mark": {"type": "arc", "innerRadius": 50
     }
-  }, {
-    "mark": {"type": "text", "radius": 115},
+  }, 
+  {
+    "transform": [
+      {"calculate": "datum['Job Title'] / 3951 ", "as": "percentage"}
+    ],
+    "mark": {"type": "text", "radius": 120},
     "encoding": {
-      "text": {"field": "Job Title", "type": "nominal"}
+      "text": {"field": "percentage", "type": "quantitative", "format":".2%"}
     }
   }],
   "encoding": {

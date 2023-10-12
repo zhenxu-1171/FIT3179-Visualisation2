@@ -38,10 +38,12 @@ h1 {
 }
 
 .description-right {
+    padding-top: 3px;
     padding-left: 20px;
 }
 
 .description-left {
+    padding-top: 2px;
     padding-right: 20px;
 }
 

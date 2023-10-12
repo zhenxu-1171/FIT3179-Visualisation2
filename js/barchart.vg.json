@@ -97,7 +97,35 @@
         "title":"Overall Average Line"
       }
     }
+    },
+    {
+    "transform": [{
+      "filter": {"param": "brush"}
     }],
+    "mark": {"type": "text", "dx": 170, "dy": 140, "fontWeight":"bold", "color":"firebrick"},
+    "encoding": {
+      "text": {"field": "aggregate_salary",
+      "type": "quantitative",
+      "aggregate":"mean",
+      "format":".2f"
+      }
+    }},
+    {
+      "data": {
+        "values": [
+          {"text": "Average Salary Line: "}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dx": 93, "dy": 140
+      },
+      "encoding": {
+        "text": {"field": "text", "type": "nominal"}
+        
+      }
+    }
+  ],
   "config": {
     "title": {"fontSize":15}
   }

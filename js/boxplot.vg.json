@@ -11,7 +11,7 @@
       "bind":{
         "input":"select",
         "options":
-            [null,
+            [
             "Africa",
             "Asia",
             "Europe",
@@ -20,7 +20,6 @@
             "Oceania",
             "South America"],
         "labels": [
-          "Show All",
           "Africa",
           "Asia",
           "Europe",
@@ -35,7 +34,7 @@
   ],
   "transform": [
     {"calculate": "datum['Salary in USD'] - 0", "as": "Salary in USD"},
-    {"filter": "region_select == null || datum['Region'] == region_select"}
+    {"filter": "datum['Region'] == region_select"}
   ],
   "mark": {
     "type": "boxplot",
