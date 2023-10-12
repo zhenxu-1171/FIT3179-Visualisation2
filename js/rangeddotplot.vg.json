@@ -39,7 +39,7 @@
           "field": "Region",
           "type": "nominal"
         },
-        "color": {"value": "#db646f"},
+        "color": {"value": "#db646f"}
       }
     },
     {
