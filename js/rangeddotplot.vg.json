@@ -47,12 +47,7 @@
         "name":"year_selection",
         "select":{"type":"point", "fields": ["Year"]},
         "bind":"legend"
-      },
-      {
-    "name": "view",
-    "select": "interval",
-    "bind": "scales"
-  }],
+      }],
       "mark": {
         "type": "point",
         "filled": true
