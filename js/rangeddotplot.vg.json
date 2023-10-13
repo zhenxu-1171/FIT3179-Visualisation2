@@ -88,7 +88,7 @@
       "mark": {
         "type": "text",
         "baseline": "bottom",
-        "dx": 130,
+        "dx": 100,
         "dy": -30,
         "fontWeight": "bold",
         "color": "orangered",
@@ -102,7 +102,7 @@
         "type": "text",
         "align": "left",
         "baseline": "bottom",
-        "dx": 130,
+        "dx": 100,
         "dy": -3,
         "fontWeight": "bold",
         "color": "orangered",
