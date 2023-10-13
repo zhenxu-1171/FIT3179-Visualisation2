@@ -3,7 +3,8 @@
   "title": {"text":"Salary Growth Trend in Region(2022 to 2023)", "offset":10},
   "width":"container",
   "height": 250,
-  "data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/rangeddotplot.csv"},
+  "layer":[
+  {"data": {"url": "https://raw.githubusercontent.com/zhenxu-1171/FIT3179-Visualisation2/main/data/rangeddotplot.csv"},
   
   "transform": [
     {
@@ -74,6 +75,40 @@
       {"field": "Average of Salary in USD", "type": "quantitative", "title": "Average Salary in USD", "format": ".2f"}
     ]
       }
+    }
+    
+  ]
+  },
+    {
+      "data": {
+        "values": [
+          {"text": "Middle East increased the most"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dx": 130,
+        "dy": -30,
+        "fontWeight": "bold",
+        "color": "orangered",
+        "fontSize": 12
+      },
+      "encoding": {"text": {"field": "text", "type": "nominal"}}
+    },
+    {
+      "data": {"values": [{"text": "⇩"}]},
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 130,
+        "dy": -3,
+        "fontWeight": "bold",
+        "color": "orangered",
+        "fontSize": 30
+      },
+      "encoding": {"text": {"field": "text", "type": "nominal"}}
     }
   ],
   "config": {"title": {"fontSize":15}}
